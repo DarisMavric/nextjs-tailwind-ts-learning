@@ -11,13 +11,17 @@ const formSchema = z.object({
     username: z.string().min(2, {
       message: "Username must be at least 2 characters.",
     }),
+    password: z.string().min(8, {
+      message: "Password must be at least 8 characters.",
+    }),
   })
 
-export default function FormSubmit(){
+export default function LoginForm(){
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
           username: "",
+          password: "",
         },
       })
      
@@ -30,7 +34,7 @@ export default function FormSubmit(){
 
       return (
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
             <FormField
               control={form.control}
               name="username"
@@ -42,6 +46,22 @@ export default function FormSubmit(){
                   </FormControl>
                   <FormDescription>
                     This is your public display name.
+                  </FormDescription>
+                  <FormMessage/>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input placeholder="shadcn" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    This is your password.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

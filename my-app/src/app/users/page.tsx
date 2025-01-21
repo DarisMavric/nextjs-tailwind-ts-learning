@@ -1,11 +1,13 @@
 'use client'
 
-import FormSubmit from "./FormSubmit";
+import LoginForm from "@/components/LoginForm"
 
 export default function Page(){
     return (
-        <div className="w-[350px] h-[200px] p-3 bg-black text-white">
-            <FormSubmit/>
+        <div className=" h-screen flex items-center justify-center">
+            <div className="w-[350px] p-[10px] bg-black text-white ">
+                <LoginForm/>
+            </div>
         </div>
     )
 }
