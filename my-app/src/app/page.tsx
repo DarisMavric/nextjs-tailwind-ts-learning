@@ -1,8 +1,12 @@
+'use client'
+
 import { Button } from "@/components/ui/button";
+import { SignOutButton, useAuth, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+
   return (
     <div className="block">
       <div className="flex justify-between items-center p-5">
