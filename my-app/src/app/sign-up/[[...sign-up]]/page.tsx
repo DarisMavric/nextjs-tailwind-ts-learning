@@ -1,5 +1,4 @@
-import LoginForm from "@/components/LoginForm";
-import { SignIn, SignUp } from "@clerk/nextjs";
+import { SignUp } from "@clerk/nextjs";
 
 export default function Page() {
   return (
@@ -70,7 +69,7 @@ export default function Page() {
               </p>
             </div>
 
-            <SignIn />
+            <SignUp />
           </div>
         </main>
       </div>
