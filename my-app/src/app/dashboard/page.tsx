@@ -13,7 +13,7 @@ export default function Dashboard() {
     }
 
     return (
-        <div className="">
+        <div className="md:ml-64">
             <p>hello {user.firstName}</p>
             <SignOutButton/>
         </div>

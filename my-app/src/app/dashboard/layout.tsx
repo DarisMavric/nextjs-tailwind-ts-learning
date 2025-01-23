@@ -1,19 +1,17 @@
-import {
-  ClerkProvider,
-} from '@clerk/nextjs'
+import React from "react";
+import SideNav from "./_components/SideNav"
 
 
-export default function RootLayout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
+export default function DashboardLayout({children} : any){
     return (
-        <html lang="en">
-          <body>
+        <div>
+          <div className="fixed md:w-64 hidden md:block">
+            <SideNav/>
+          </div>
+          <div>
             {children}
-          </body>
-        </html>
+          </div>
+        </div>
     );
   }
   
