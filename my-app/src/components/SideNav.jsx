@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react'
 import { LayoutGrid, PiggyBank, ReceiptText, ShieldCheck } from 'lucide-react';
+import { UserButton } from '@clerk/nextjs';
 
 function SideNav(){
   const menuList=[
@@ -39,6 +40,10 @@ function SideNav(){
               {menu.name}
             </h2>
           ))}
+        </div>
+        <div className="fixed bottom-0 p-5 flex gap-2">
+          <UserButton/>
+          Profile
         </div>
     </div>
   )
