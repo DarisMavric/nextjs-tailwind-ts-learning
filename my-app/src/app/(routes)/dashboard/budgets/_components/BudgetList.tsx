@@ -1,14 +1,16 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CreateBudget from './CreateBudget'
 import { Budgets, Expenses } from '@/utils/schema'
 import { db } from '@/utils/dbConfig'
 import { eq, getTableColumns, sql } from 'drizzle-orm'
 import { useUser } from '@clerk/nextjs'
+import BudgetItem from './BudgetItem'
 
 const BudgetList = () => {
 
+    const [budgetList,setBudgetList] = useState([]);
 
     const {user} = useUser();
 
@@ -25,14 +27,18 @@ const BudgetList = () => {
         .leftJoin(Expenses,eq(Budgets.id,Expenses.budgetId))
         .where(eq(Budgets.createdBy,user?.primaryEmailAddress?.emailAddress as any))
         .groupBy(Budgets.id)
+        setBudgetList(result as any);
 
 
         console.log(result);
     }
   return (
     <div className='mt-7'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             <CreateBudget/>
+            {budgetList.map((budget,index) => (
+                <BudgetItem budget={budget}/>
+            ))}
         </div>
     </div>
   )
