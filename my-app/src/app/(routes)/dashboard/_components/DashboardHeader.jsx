@@ -3,7 +3,7 @@ import React from 'react'
 
 const DashboardHeader = () => {
   return (
-    <div className='p-5 shadow-sm border-bottom flex justify-between'>
+    <div className='p-5 shadow-sm border-bottom flex justify-between items-center'>
         <div>
             Search Bar
         </div>
