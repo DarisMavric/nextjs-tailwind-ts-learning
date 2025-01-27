@@ -19,7 +19,7 @@ function SideNav(){
       id:2,
       name:'Budgets',
       icon:PiggyBank,
-      path: '/dashboard/budget'
+      path: '/dashboard/budgets'
     },
     {
       id:3,
@@ -45,8 +45,8 @@ function SideNav(){
         <div className='mt-5'>
           {menuList.map((menu,index)=> (
             <Link href={menu.path}>
-            <h2 className={`flex gap-2 items-center text-gray-500 font-medium mb-2 p-5 cursor-pointer rounded-md
-            hover: text-primary hover:bg-blue-500 ${path===menu.path&&'text-primary bg-blue-100'}`}>
+            <h2 className={`flex gap-2 items-center text-gray-500 font-medium p-5 cursor-pointer rounded-md
+            hover:text-primary hover:bg-blue-100 ${path===menu.path&&'text-primary bg-blue-100'}`}>
               <menu.icon/>
               {menu.name}
             </h2>
