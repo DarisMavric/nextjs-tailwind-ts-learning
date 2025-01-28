@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "drizzle.config.js", "src/utils/dbConfig.jsx", "src/app/(routes)/dashboard/budgets/_components/CreateBudget.jsx", "src/app/(routes)/dashboard/expenses/[id]/page.jsx", "src/app/(routes)/dashboard/expenses/[id]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "drizzle.config.js", "src/utils/dbConfig.jsx", "src/app/(routes)/dashboard/budgets/_components/CreateBudget.jsx", "src/app/(routes)/dashboard/expenses/[id]/page.jsx", "src/app/(routes)/dashboard/expenses/[id]/page.jsx", "src/app/(routes)/dashboard/budgets/_components/CardInfo.tsx"],
   "exclude": ["node_modules"]
 }

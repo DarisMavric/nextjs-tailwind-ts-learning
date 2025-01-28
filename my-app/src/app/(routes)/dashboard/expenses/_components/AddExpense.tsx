@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { db } from "@/utils/dbConfig";
+import moment from "moment"
 import { Budgets, Expenses } from "@/utils/schema";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const AddExpense = ({budgetId,user}: any) => {
+const AddExpense = ({budgetId,user,refreshData}: any) => {
 
     const [amount,setAmount] = useState('');
     const [name,setName] = useState('');
@@ -15,13 +16,14 @@ const AddExpense = ({budgetId,user}: any) => {
             name:name,
             amount:amount,
             budgetId:budgetId,
-            createdAt: user?.primaryEmailAddress?.emailAddress,
+            createdAt: moment().format('DD/MM/yyy')
         } as any).returning({insertedId:Budgets.id})
 
 
         console.log(result);
 
         if(result){
+            refreshData();
             toast('New Expense Added')
         }
     }
