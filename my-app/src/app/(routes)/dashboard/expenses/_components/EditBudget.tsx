@@ -23,9 +23,9 @@ import { eq } from 'drizzle-orm';
 
 const EditBudget = ({budgetInfo,refreshData}: any) => {
 
-    if (budgetInfo.length !> 0) {
-        return <div>Loading...</div>; // Or some loading spinner
-      }
+      if (!budgetInfo || budgetInfo.length === 0) {
+        return <div>Loading...</div>;
+    }
 
     const [emojiIcon, setEmojiIcon] = useState(budgetInfo.icon);
   const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
